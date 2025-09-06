@@ -1,0 +1,128 @@
+:root {
+  --bg: #000;
+  --fg: #e6e6e6;
+  --text: #cfcfcf;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  canvas {
+    cursor: default;
+  }
+}
+
+.author {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 6;
+  font-weight: 700;
+  font-size: 14px;
+  color: #bfbfbf;
+  user-select: none;
+  letter-spacing: .2px;
+}
+
+.author .name {
+  background: linear-gradient(120deg, #eee, #bbb, #ddd, #bdbdbd, #eee);
+  background-size: 220% 220%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 9s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.panel {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  z-index: 5;
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #bdbdbd;
+  user-select: none;
+}
+
+.sw {
+  display: flex;
+  gap: 6px;
+}
+
+.sw button {
+  width: 26px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid #2a2a2a;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sw button[data-col="white"] { background: #e6e6e6; }
+.sw button[data-col="gray"] { background: #c1c1c1; }
+.sw button[data-col="lime"] { background: #bfecc0; }
+.sw button[data-col="blue"] { background: #c8dfff; }
+
+.sw button.active {
+  outline: 2px solid #3a3a3a;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.overlay .start {
+  padding: 20px 50px;
+  background: #1a1a1a;
+  border: 2px solid #3a3a3a;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.overlay .start:hover {
+  background: #2a2a2a;
+  border-color: #5a5a5a;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
