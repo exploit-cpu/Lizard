@@ -2,27 +2,34 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,shrink-to-fit=no">
+<meta name="description" content="Canvas-анимация скелета — интерактивный демонстрационный проект.">
 <title>Perfect Skeleton — EventumNoctis</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="overlay" id="overlay">
-    <button class="start">НАЧАТЬ</button>
+  <div class="overlay" id="overlay" role="dialog" aria-label="Стартовая панель">
+    <button class="start" id="startBtn" type="button" aria-label="Начать анимацию">НАЧАТЬ</button>
   </div>
   
-  <canvas id="cv"></canvas>
+  <canvas id="cv" aria-label="Анимация скелета" role="img"></canvas>
   <div class="author">Автор: <span class="name">EventumNoctis</span></div>
 
-  <div class="panel">
+  <div class="panel" role="region" aria-label="Панель управления">
     Цвет:
-    <div class="sw" id="sw">
-      <button data-col="white" title="Белый"></button>
-      <button data-col="gray" title="Серый"></button>
-      <button data-col="lime" title="Лайм"></button>
-      <button data-col="blue" title="Голубой"></button>
+    <div class="sw" id="sw" role="toolbar" aria-label="Выбор цвета">
+      <button data-col="white" type="button" title="Белый" aria-label="Белый" aria-pressed="false" tabindex="0"></button>
+      <button data-col="gray" type="button" title="Серый" aria-label="Серый" aria-pressed="false" tabindex="0"></button>
+      <button data-col="lime" type="button" title="Лайм" aria-label="Лайм" aria-pressed="false" tabindex="0"></button>
+      <button data-col="blue" type="button" title="Голубой" aria-label="Голубой" aria-pressed="false" tabindex="0"></button>
     </div>
   </div>
+
+  <noscript>
+    <div style="position:fixed;left:0;right:0;top:0;padding:12px;background:#ffeb3b;color:#000;text-align:center;z-index:20;">
+      Для просмотра этой страницы требуется включённый JavaScript.
+    </div>
+  </noscript>
 
   <script src="script.js"></script>
 </body>
